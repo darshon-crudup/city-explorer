@@ -48,16 +48,36 @@ body {
 button {
   background-color: yellow; 
   color: black;
-  padding: 4px 24px;
+  padding: 16px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin-left: 2px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 form {
+  text-align: center;
   padding: 5px 24px; 
 }
 h1 {
-margin-left: 20px;
+text-align: center;
+}
+p {
+  text-align: center;
+}
+input[type=text] {
+  background-color: black;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid yellow;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+}
+label {
+  font-size: 20px;
 }
