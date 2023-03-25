@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Image from 'react-bootstrap/Image'
+// import Image from 'react-bootstrap/Image'
 import './App.css';
 
 class App extends React.Component {
@@ -29,13 +29,23 @@ class App extends React.Component {
 
       let cityDataFromAxios = await axios.get(url);
 
-      console.log(cityDataFromAxios.data[0])
-
       this.setState({
         cityData: cityDataFromAxios.data[0],
-        mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityDataFromAxios.data[0].lat},${cityDataFromAxios.data[0].lon}&zoom=13`,
         error: false
       });
+
+      let lat = cityDataFromAxios.data[0].lat;
+      let lon = cityDataFromAxios.data[0].lon;
+
+      // this.handleGetWeather(lat, lon);
+
+      let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}&lat=${lat}&lon=${lon}`;
+      //http://localhost:3001/weather?lat=43.234324&lon=9304290.3432&searchQuery=SeAttle  
+      
+      let weatherDataFromAxios = await axios.get(weatherUrl);
+
+      console.log('Weather: ', weatherDataFromAxios.data)
+
 
     } catch (error) {
 
@@ -46,6 +56,23 @@ class App extends React.Component {
     }
 
   }
+
+  handleGetWeather = async (lat, lon) => {
+    try {
+   
+      let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}&lat=${lat}&lon=${lon}`;
+      //http://localhost:3001/weather?lat=43.234324&lon=9304290.3432&searchQuery=SeAttle  
+      
+    let weatherDataFromAxios = await axios.get(url);
+
+    console.log('Weather: ', weatherDataFromAxios.data)
+
+
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  } 
 
   render() {
     return (
@@ -63,12 +90,11 @@ class App extends React.Component {
           this.state.error
             ? <p>{this.state.errorMessage}</p>
             : Object.keys(this.state.cityData).length > 0 &&
-            <ul>
-              <p id="title">{this.state.cityData.display_name}</p>
-              <Image class="map" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Area Map' />
-              <p>{this.state.cityData.lon}</p>
-              <p>{this.state.cityData.lat}</p>
-            </ul>
+            <>
+              <p>{this.state.cityData.display_name}</p>
+              <p>Lat: {this.state.cityData.lon}</p>
+              <p>Lon: {this.state.cityData.lat}</p>
+            </>
         }
       </>
     )
