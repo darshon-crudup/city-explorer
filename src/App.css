@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-image: url('./images/tyler-lastovich-d0Sl3AH8Tlg-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-attachment:contained;
+  background-size:cover;
+  background-color:white;
+  color:white;
+  padding-left: 75px;
+}
+button {
+  background-color: yellow; 
+  color: black;
+  padding: 4px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 2px;
+}
+form {
+  padding: 5px 24px; 
+}
+h1 {
+margin-left: 20px;
+}
