@@ -12,6 +12,7 @@ class App extends React.Component {
       cityData: {},
       error: false,
       errorMessage: '',
+      weatherData: [],
     }
   }
 
@@ -37,16 +38,9 @@ class App extends React.Component {
       let lat = cityDataFromAxios.data[0].lat;
       let lon = cityDataFromAxios.data[0].lon;
 
-      // this.handleGetWeather(lat, lon);
+      this.handleGetWeather(lat, lon);
 
-      let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}&lat=${lat}&lon=${lon}`;
-      //http://localhost:3001/weather?lat=43.234324&lon=9304290.3432&searchQuery=SeAttle  
       
-      let weatherDataFromAxios = await axios.get(weatherUrl);
-
-      console.log('Weather: ', weatherDataFromAxios.data)
-
-
     } catch (error) {
 
       this.setState({
@@ -67,7 +61,9 @@ class App extends React.Component {
 
     console.log('Weather: ', weatherDataFromAxios.data)
 
-
+    this.setState({
+      weatherData: weatherDataFromAxios.data
+    })  
 
     } catch (error) {
       console.log(error.message)
@@ -77,10 +73,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>API</h1>
+        <h1>Welcome to Hello Search 👋🏾</h1>
 
         <form onSubmit={this.getCityData}>
-          <label >Enter in a City:
+          <label >Enter in a City:<p></p> 
             <input type="text" onChange={this.handleCityInput} />
           </label>
           <button type="submit">Explore</button>
