@@ -10,7 +10,7 @@ This project uses LocationIQ to obtain lat and lon based on your location.
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-![wrrc](/301/images/wrrc.jpg)
+![wrrc](/wrrc.jpg)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
