@@ -4,12 +4,14 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
+
 This project uses LocationIQ to obtain lat and lon based on your location.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
+
 ![wrrc](/src/images/WRRC.jpg)
 
 ## Change Log
