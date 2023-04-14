@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 // import Image from 'react-bootstrap/Image';
 import './App.css';
+// import Weather from './Weather';
 import MovieData from './Movies.js';
 
 class App extends React.Component {
@@ -51,7 +52,7 @@ class App extends React.Component {
   handleGetWeather = async (lat, lon) => {
     try {
    
-      let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}&lat=${lat}&lon=${lon}`;
+      let url = `${process.env.WEATHER_API_KEY}/weather?searchQuery=${this.state.city}&lat=${lat}&lon=${lon}`;
       //http://localhost:3001/weather?lat=43.234324&lon=9304290.3432&searchQuery=SeAttle  
       
     let cityWeatherDataFromAxios = await axios.get(url);
@@ -122,16 +123,17 @@ class App extends React.Component {
       <div id="dataContainer"> <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='map of current city'></img>
       <section id='textContainer'>
         <div>
+        <h1>Coordinates By Location 🧭</h1>
           <p>Latitude:{this.state.cityData.lat}</p>
         </div>
         <div>
           <p>Longitude:{this.state.cityData.lon}</p>
         </div>
       </section>
-        <h1>Movies By Location 🎥</h1>
       </div>
 
   }
+        <h1>Movies By Location 🎥</h1>
         <div id="movieData">
         <MovieData
           cityMovieData={this.state.cityMovieData}
