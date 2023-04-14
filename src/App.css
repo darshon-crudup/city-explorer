@@ -45,15 +45,23 @@ body {
   color:white;
   padding-left: 75px;
 }
+#dataContainer {
+  text-align: center;
+}
+#movieData {
+  text-align: center;
+  /* background-color: blue; */
+}
 button {
-  background-color: yellow; 
-  color: black;
+  background-color: black; 
+  color: yellow;
+  border-color: yellow;
   padding: 16px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: 2px;
+  margin-left: 10px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -63,12 +71,13 @@ form {
 }
 h1 {
 text-align: center;
+color: yellow;
 }
 p {
   text-align: center;
 }
 input[type=text] {
-  background-color: black;
+  background-color: black; 
   width: 25%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -80,4 +89,5 @@ input[type=text] {
 }
 label {
   font-size: 20px;
+  color: white;
 }
