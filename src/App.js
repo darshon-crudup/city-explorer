@@ -29,7 +29,8 @@ class App extends React.Component {
     
     try {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`
-      
+
+
       let cityDataFromAxios = await axios.get(url);
       let lat = cityDataFromAxios.data[0].lat;
       let lon = cityDataFromAxios.data[0].lon;
@@ -74,7 +75,10 @@ class App extends React.Component {
 
   getMovieData = async () => {
     try {
+      // let movieUrl = (`${process.env.REACT_APP_SERVER}/movies?city=${this.state.city}`)
+
       let movieUrl = (`${process.env.REACT_APP_SERVER}/movie?searchQuery=${this.state.city}`)
+      
       let movieDataFromAxios = await axios.get(movieUrl)
 
       // let movieArr = movieDataFromAxios.data.map((movies, key) => {
@@ -94,6 +98,7 @@ class App extends React.Component {
     render() {
       
       return (
+        
         <section>
           <h1>Welcome to Hello Search 🔎</h1>
           <form onSubmit={this.getCityData}>
