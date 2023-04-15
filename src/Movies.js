@@ -2,7 +2,7 @@ import React from 'react';
 
 class MovieData extends React.Component {
   render() {
-    console.log(this.props.cityMovieData);
+    // console.log(this.props.cityMovieData);
     return(
 
       <>
